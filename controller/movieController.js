@@ -1,4 +1,5 @@
 const express = require("express");
+<<<<<<< HEAD
 const { getAllMovies } = require("../queries/movieQuery.js");
 // router variable to handle request
 const movie = express.Router();
