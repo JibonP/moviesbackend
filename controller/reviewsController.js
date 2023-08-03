@@ -9,12 +9,21 @@ const {
 } = require("../queries/reviews");
 
 const router = express.Router({ mergeParams: true });
-
 router.get("/", async (req, res) => {
-  const allReviews = await getAllReviews(req.params.movieId);
+  const allReviews = await getAllReviewsOnMovieId(req.params.movieId);
 
   if (allReviews.length === 0) {
-    res.status(404).json({ error: "Review not found" });
+    res.status(404).json({ error: "Reviews not found for this movie" });
+  } else {
+    res.json(allReviews);
+  }
+});
+
+router.get("/", async (req, res) => {
+  const allReviews = await getAllReviews();
+
+  if (allReviews.length === 0) {
+    res.status(404).json({ error: "No reviews found" });
   } else {
     res.json(allReviews);
   }

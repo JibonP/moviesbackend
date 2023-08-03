@@ -1,11 +1,8 @@
 const db = require("../db/dbConfig");
 
-const getAllReviews = async (movieId) => {
+const getAllReviews = async () => {
   try {
-    const allReviews = await db.any(
-      `SELECT * FROM reviews WHERE movie_id = $1 ORDER BY id ASC`,
-      movieId
-    );
+    const allReviews = await db.any(`SELECT * FROM reviews ORDER BY id ASC`);
     return allReviews;
   } catch (error) {
     return error;
@@ -81,13 +78,12 @@ const updateReviewById = async (id, review) => {
   }
 };
 
-const getAllReviewsOnMovieId = async (movie_id) => {
+const getAllReviewsOnMovieId = async (movieId) => {
   try {
     const allReviews = await db.any(
-      `SELECT * FROM movies INNER JOIN reviews ON reviews.movie_id = movies.id WHERE reviews.movie_id = $1`,
-      movie_id
+      `SELECT * FROM reviews WHERE movie_id = $1 ORDER BY id ASC`,
+      movieId
     );
-
     return allReviews;
   } catch (error) {
     return error;
