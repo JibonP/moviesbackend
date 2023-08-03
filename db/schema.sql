@@ -24,6 +24,6 @@ CREATE TABLE reviews (
     title TEXT,
     content TEXT,
     rating NUMERIC CHECK (rating >= 0 AND rating <= 5),
-    bookmark_id INTEGER REFERENCES bookmarks (id) ON DELETE CASCADE
+    movie_id INTEGER REFERENCES movies (id) ON DELETE CASCADE
 );
 
