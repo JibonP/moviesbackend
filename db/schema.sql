@@ -11,8 +11,7 @@ CREATE TABLE movies (
     year INT,
     img BYTEA,
     rating INT,
-    favorite BOOLEAN,
-    actor TEXT,
+    favorite_actor TEXT,
     would_rewatch BOOLEAN
 );
 

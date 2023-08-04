@@ -13,7 +13,7 @@ const createUser = async (data) => {
     return e;
   }
 };
-
+// get all users
 const getAllUsers = async () => {
   try {
     const allUsers = await db.any("SELECT * FROM users");
@@ -22,7 +22,7 @@ const getAllUsers = async () => {
     return error;
   }
 };
-
+// update users by id
 const updateUserById = async (id, review) => {
   let { userName, password_hash } = review;
   try {
@@ -31,6 +31,26 @@ const updateUserById = async (id, review) => {
       [userName, password_hash]
     );
     return updated;
+  } catch (error) {
+    return error;
+  }
+};
+// get user by id
+
+const getUserById = async (movieId, reviewId) => {
+  try {
+    const oneReview = await db.any(
+      `
+          SELECT MOVIE_ID,
+             
+          FROM MOVIES
+          JOIN REVIEWS ON MOVIES.ID = REVIEWS.MOVIE_ID
+          WHERE MOVIES.ID = $1
+              AND REVIEWS.ID = $2;
+      `,
+      [movieId, reviewId]
+    );
+    return oneReview;
   } catch (error) {
     return error;
   }
