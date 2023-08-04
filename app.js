@@ -4,7 +4,7 @@ const morgan = require("morgan");
 
 const movieController = require("./controller/movieController");
 const reviewsController = require("./controller/reviewsController");
-
+const userController = require("./controller/usersController.js");
 const app = express();
 
 app.use(cors());
@@ -13,6 +13,7 @@ app.use(morgan("dev"));
 
 app.use("/movies", movieController);
 app.use("/reviews", reviewsController);
+app.use("/create-user", userController);
 
 // GET - /movies - get all movies
 // POST - /movies - create movie

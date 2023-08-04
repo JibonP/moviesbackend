@@ -1,5 +1,4 @@
 const db = require("../db/dbConfig");
-
 const getAllReviews = async () => {
   try {
     const allReviews = await db.any(`SELECT * FROM reviews ORDER BY id ASC`);
@@ -8,7 +7,6 @@ const getAllReviews = async () => {
     return error;
   }
 };
-
 const getReviewById = async (movieId, reviewId) => {
   try {
     const oneReview = await db.any(
@@ -25,26 +23,22 @@ const getReviewById = async (movieId, reviewId) => {
     `,
       [movieId, reviewId]
     );
-
     return oneReview;
   } catch (error) {
     return error;
   }
 };
-
 const deleteReviewById = async (id) => {
   try {
     const deleteReview = await db.any(
       `DELETE FROM reviews WHERE id = $1 RETURNING *`,
       id
     );
-
     return deleteReview;
   } catch (error) {
     return error;
   }
 };
-
 const createReview = async (review) => {
   try {
     const newReview = await db.any(
@@ -57,13 +51,11 @@ const createReview = async (review) => {
         review.rating,
       ]
     );
-
     return newReview;
   } catch (error) {
     return error;
   }
 };
-
 const updateReviewById = async (id, review) => {
   let { reviewer, title, content, rating } = review;
   try {
@@ -71,13 +63,11 @@ const updateReviewById = async (id, review) => {
       `UPDATE reviews SET reviewer = $1, title = $2, content = $3, rating = $4 WHERE id = $5 RETURNING *`,
       [reviewer, title, content, rating, id]
     );
-
     return updatedReview;
   } catch (error) {
     return error;
   }
 };
-
 const getAllReviewsOnMovieId = async (movieId) => {
   try {
     const allReviews = await db.any(
@@ -89,7 +79,6 @@ const getAllReviewsOnMovieId = async (movieId) => {
     return error;
   }
 };
-
 module.exports = {
   getAllReviews,
   getReviewById,

@@ -9,8 +9,8 @@ VALUES
   ('Inception', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.', 2010, 'image_url_2', 8, true, 'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page', false),
   ('La La Land', 'While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.', 2016, 'image_url_3', 8, false, 'Ryan Gosling, Emma Stone', true);
 
--- Insert reviews
-INSERT INTO reviews (bookmark_id, reviewer, title, content, rating)
+
+INSERT INTO reviews (movie_id, reviewer, title, content, rating)
 VALUES
   (1, 'John', 'One of the Best Movies Ever', 'This movie is a masterpiece. The storytelling, the acting, everything is just perfect. Highly recommended.', 5),
   
@@ -18,4 +18,7 @@ VALUES
   (2, 'Michelle', 'Confusing but Brilliant', 'I enjoyed Inception, but its brilliance is evident here.', 4),
   (3, 'Emily', 'A Beautiful Love Story', 'La La Land is a beautiful and heartfelt love story. The music and performances are outstanding. I could watch this movie over and over again.', 4.5),
   (3, 'Michael', 'Good but Overrated', 'La La Land is visually stunning, and the chemistry between Ryan Gosling and Emma Stone is great. However, I feel it was a bit overhyped.', 3.5);
+  
+
+
   
