@@ -19,3 +19,6 @@ VALUES
   (3, 'Emily', 'A Beautiful Love Story', 'La La Land is a beautiful and heartfelt love story. The music and performances are outstanding. I could watch this movie over and over again.', 4.5),
   (3, 'Michael', 'Good but Overrated', 'La La Land is visually stunning, and the chemistry between Ryan Gosling and Emma Stone is great. However, I feel it was a bit overhyped.', 3.5);
   
+
+
+  

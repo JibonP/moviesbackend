@@ -11,8 +11,7 @@ CREATE TABLE movies (
     year INT,
     img BYTEA,
     rating INT,
-    favorite BOOLEAN,
-    actor TEXT,
+    favorite_actor TEXT,
     would_rewatch BOOLEAN
 );
 
@@ -27,3 +26,10 @@ CREATE TABLE reviews (
     movie_id INTEGER REFERENCES movies (id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    userName VARCHAR(50) NOT NULL,
+    password_hash VARCHAR(100) NOT NULL
+);
