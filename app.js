@@ -4,7 +4,7 @@ const morgan = require("morgan");
 
 const movieController = require("./controller/movieController");
 const reviewsController = require("./controller/reviewsController");
-const userController = require("./controller/usersController.js");
+// const userController = require("./controller/usersController.js");
 const app = express();
 
 app.use(cors());
@@ -13,23 +13,7 @@ app.use(morgan("dev"));
 
 app.use("/movies", movieController);
 app.use("/reviews", reviewsController);
-app.use("/create-user", userController);
-
-// GET - /movies - get all movies
-// POST - /movies - create movie
-// GET - /movies/:id - get movie by id
-// PUT - /movies/:id - update movie by id
-// DELETE - /movies/:id - delete movie by id
-
-// GET - /reviews - get all reviews
-// POST - /reviews - create review
-// GET - /reviews/:id - get review by id
-// PUT - /reviews/:id - update review by id
-// DELETE - /reviews/:id - delete review by id
-
-/*
-  /movies/:id/reviews - get all reviews for a specific movie
-*/
+// app.use("/create-user", userController);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Movies App");
